@@ -3,6 +3,7 @@ import './form.css';
 
 class Form extends React.Component {
   render() {
+    const { onChange } = this.props;
     return (
       <div>
         <form className="form-content">
@@ -12,6 +13,8 @@ class Form extends React.Component {
               type="text"
               id="name-input"
               data-testid="name-input"
+              name="cardName"
+              onChange={ onChange }
             />
           </label>
           <label htmlFor="description-input">
@@ -20,6 +23,8 @@ class Form extends React.Component {
               type="textarea"
               id="description-input"
               data-testid="description-input"
+              name="cardDescription"
+              onChange={ onChange }
             />
           </label>
           <label htmlFor="attr1-input">
@@ -28,6 +33,8 @@ class Form extends React.Component {
               type="number"
               id="attr1-input"
               data-testid="attr1-input"
+              name="cardAttr1"
+              onChange={ onChange }
             />
           </label>
           <label htmlFor="attr2-input">
@@ -36,6 +43,8 @@ class Form extends React.Component {
               type="number"
               id="attr2-input"
               data-testid="attr2-input"
+              name="cardAttr2"
+              onChange={ onChange }
             />
           </label>
           <label htmlFor="attr3-input">
@@ -44,6 +53,8 @@ class Form extends React.Component {
               type="number"
               id="attr3-input"
               data-testid="attr3-input"
+              name="cardAttr3"
+              onChange={ onChange }
             />
           </label>
           <label htmlFor="image-input">
@@ -52,11 +63,18 @@ class Form extends React.Component {
               type="text"
               id="image-input"
               data-testid="image-input"
+              name="cardImage"
+              onChange={ onChange }
             />
           </label>
           <label htmlFor="rare-input">
             raridade
-            <select id="rare-input" data-testid="rare-input">
+            <select
+              id="rare-input"
+              data-testid="rare-input"
+              name="cardRare"
+              onChange={ onChange }
+            >
               <option value="normal">normal</option>
               <option value="raro">raro</option>
               <option value="muito raro">muito raro</option>
@@ -66,9 +84,10 @@ class Form extends React.Component {
             Super Trunfo
             <input
               type="checkbox"
-              name="super-trunfo"
+              name="cardTrunfo"
               id="super-trundo"
               data-testid="trunfo-input"
+              onChange={ onChange }
             />
           </label>
           <button type="submit" data-testid="save-button">Salvar</button>
