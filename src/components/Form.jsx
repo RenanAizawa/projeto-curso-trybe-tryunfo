@@ -1,3 +1,4 @@
+import ProTypes from 'prop-types';
 import React from 'react';
 import './form.css';
 
@@ -13,7 +14,7 @@ class Form extends React.Component {
       cardRare,
       cardTrunfo,
       isSaveButtonDisabled,
-      hasTrunfo,
+      // hasTrunfo,
       onInputChange,
       onSaveButtonClick,
     } = this.props;
@@ -124,5 +125,17 @@ class Form extends React.Component {
     );
   }
 }
+
+Form.propTypes = {
+  cardName: ProTypes.string,
+  cardDescription: ProTypes.string,
+  cardAttr1: ProTypes.string,
+  cardAttr2: ProTypes.string,
+  cardAttr3: ProTypes.string,
+  cardImage: ProTypes.string,
+  cardRare: ProTypes.string,
+  cardTrunfo: ProTypes.bool,
+  isSaveButtonDisabled: ProTypes.bool,
+}.isRequired;
 
 export default Form;
