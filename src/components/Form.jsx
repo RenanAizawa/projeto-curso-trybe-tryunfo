@@ -1,4 +1,4 @@
-import ProTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import React from 'react';
 import './form.css';
 
@@ -20,6 +20,7 @@ class Form extends React.Component {
     } = this.props;
     return (
       <div>
+        <h2>Card Construtor</h2>
         <form className="form-content">
           <label htmlFor="name-input">
             nome da carta
@@ -127,15 +128,15 @@ class Form extends React.Component {
 }
 
 Form.propTypes = {
-  cardName: ProTypes.string,
-  cardDescription: ProTypes.string,
-  cardAttr1: ProTypes.string,
-  cardAttr2: ProTypes.string,
-  cardAttr3: ProTypes.string,
-  cardImage: ProTypes.string,
-  cardRare: ProTypes.string,
-  cardTrunfo: ProTypes.bool,
-  isSaveButtonDisabled: ProTypes.bool,
+  cardName: PropTypes.string,
+  cardDescription: PropTypes.string,
+  cardAttr1: PropTypes.string,
+  cardAttr2: PropTypes.string,
+  cardAttr3: PropTypes.string,
+  cardImage: PropTypes.string,
+  cardRare: PropTypes.string,
+  cardTrunfo: PropTypes.bool,
+  isSaveButtonDisabled: PropTypes.bool,
 }.isRequired;
 
 export default Form;

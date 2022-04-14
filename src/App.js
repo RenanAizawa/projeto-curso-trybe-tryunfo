@@ -61,7 +61,16 @@ class App extends React.Component {
           onInputChange={ (event) => this.inputChange(event) }
           onSaveButtonClick={ (event) => this.saveBtn(event) }
         />
-        <Card />
+        <Card
+          cardName={ cardName }
+          cardDescription={ cardDescription }
+          cardAttr1={ cardAttr1 }
+          cardAttr2={ cardAttr2 }
+          cardAttr3={ cardAttr3 }
+          cardImage={ cardImage }
+          cardRare={ cardRare }
+          cardTrunfo={ cardTrunfo }
+        />
       </div>
     );
   }
