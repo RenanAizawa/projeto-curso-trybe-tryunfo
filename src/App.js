@@ -15,7 +15,7 @@ class App extends React.Component {
       cardRare: '',
       cardTrunfo: false,
       hasTrunfo: false,
-      isSaveButtonDisabled: false,
+      isSaveButtonDisabled: true,
     };
   }
 
@@ -23,12 +23,54 @@ class App extends React.Component {
     const { value, type, name } = event.target;
     this.setState({
       [name]: type === 'checkbox' ? event.target.checked : value,
-    });
+    }, () => this.estadoDoBtn());
   };
 
   saveBtn = (event) => {
     event.preventDefault();
     console.log('btn sendo chamado com sucesso');
+  }
+
+  estadoDoBtn = () => {
+    const {
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardName,
+      cardDescription,
+      cardImage,
+      cardRare,
+    } = this.state;
+    const ruleMax = 90;
+    const ruleMin = 0;
+    const maxAttr = 210;
+    const attr1 = parseInt(cardAttr1, 10);
+    const attr2 = parseInt(cardAttr2, 10);
+    const attr3 = parseInt(cardAttr3, 10);
+    const somaAttr = attr1 + attr2 + attr3;
+    let val1 = false;
+    let val2 = false;
+    let val3 = false;
+    if (cardName.length
+      && cardDescription.length
+      && cardRare.length
+      && cardImage.length) {
+      val1 = true;
+    }
+    if (somaAttr <= maxAttr) {
+      val2 = true;
+    }
+    if ((attr1 >= ruleMin && attr1 <= ruleMax)
+      && (attr2 >= ruleMin && attr2 <= ruleMax)
+      && (attr3 >= ruleMin && attr3 <= ruleMax)) {
+      val3 = true;
+    }
+    const btn = val1 && val2 && val3;
+    if (btn) {
+      this.setState({ isSaveButtonDisabled: false });
+    } else {
+      this.setState({ isSaveButtonDisabled: true });
+    }
   }
 
   render() {

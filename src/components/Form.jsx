@@ -4,6 +4,8 @@ import './form.css';
 
 class Form extends React.Component {
   render() {
+    // const min = 0;
+    // const max = 90;
     const {
       cardName,
       cardDescription,
@@ -53,6 +55,8 @@ class Form extends React.Component {
               name="cardAttr1"
               onChange={ onInputChange }
               value={ cardAttr1 }
+              // min={ min }
+              // max={ max }
             />
           </label>
           <label htmlFor="attr2-input">
@@ -64,6 +68,8 @@ class Form extends React.Component {
               name="cardAttr2"
               onChange={ onInputChange }
               value={ cardAttr2 }
+              // min={ min }
+              // max={ max }
             />
           </label>
           <label htmlFor="attr3-input">
@@ -75,6 +81,8 @@ class Form extends React.Component {
               name="cardAttr3"
               onChange={ onInputChange }
               value={ cardAttr3 }
+              // min={ min }
+              // max={ max }
             />
           </label>
           <label htmlFor="image-input">
