@@ -37,6 +37,7 @@ class App extends React.Component {
       cardDescription,
       cardImage,
       cardRare,
+      cardTrunfo,
     } = this.state;
     const savecard = {
       cardAttr1,
@@ -46,9 +47,10 @@ class App extends React.Component {
       cardDescription,
       cardImage,
       cardRare,
+      cardTrunfo,
     };
     this.setState((prevState) => ({
-      savedCards: [prevState.savedCards, savecard],
+      savedCards: [...prevState.savedCards, savecard],
     }));
     this.setState({
       cardAttr1: '0',
@@ -58,6 +60,14 @@ class App extends React.Component {
       cardDescription: '',
       cardImage: '',
       cardRare: 'normal',
+      cardTrunfo: false,
+    }, () => {
+      const { savedCards } = this.state;
+      console.log('to sendo chamado');
+      const hasTrunfu = savedCards.some((card) => card.cardTrunfo === true);
+      this.setState({
+        hasTrunfo: hasTrunfu,
+      });
     });
   }
 
