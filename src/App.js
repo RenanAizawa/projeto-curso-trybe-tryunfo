@@ -16,6 +16,7 @@ class App extends React.Component {
       cardTrunfo: false,
       hasTrunfo: false,
       isSaveButtonDisabled: true,
+      savedCards: [],
     };
   }
 
@@ -28,7 +29,36 @@ class App extends React.Component {
 
   saveBtn = (event) => {
     event.preventDefault();
-    console.log('btn sendo chamado com sucesso');
+    const {
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardName,
+      cardDescription,
+      cardImage,
+      cardRare,
+    } = this.state;
+    const savecard = {
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardName,
+      cardDescription,
+      cardImage,
+      cardRare,
+    };
+    this.setState((prevState) => ({
+      savedCards: [prevState.savedCards, savecard],
+    }));
+    this.setState({
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
+      cardName: '',
+      cardDescription: '',
+      cardImage: '',
+      cardRare: 'normal',
+    });
   }
 
   estadoDoBtn = () => {
