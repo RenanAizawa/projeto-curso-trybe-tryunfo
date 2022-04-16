@@ -1,4 +1,5 @@
 import React from 'react';
+import Baralho from './components/Baralho';
 import Card from './components/Card';
 import Form from './components/Form';
 
@@ -125,6 +126,7 @@ class App extends React.Component {
       cardTrunfo,
       isSaveButtonDisabled,
       hasTrunfo,
+      savedCards,
     } = this.state;
     return (
       <div>
@@ -152,6 +154,11 @@ class App extends React.Component {
           cardImage={ cardImage }
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
+        />
+        <hr />
+        <Baralho
+          baralho={ savedCards }
+          deleteCard={ () => { console.log('estou sendo chamado'); } }
         />
       </div>
     );
